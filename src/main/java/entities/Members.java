@@ -9,34 +9,37 @@ import javax.persistence.NamedQuery;
 
 
 @Entity
-@NamedQuery(name = "Members.deleteAllRows", query = "DELETE from Members")
+@NamedQuery(name = "Members.getAllMembers",query="SELECT m from Members m")
 public class Members implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long studentID;
+    private String name;
+    private String favoriteTvshows;
     
-    public Members() {
+
+    public Members(String name, String favoriteTvshows) {
+        this.name = name;
+        this.favoriteTvshows = favoriteTvshows;
     }
+    
+    
+    
+   
         
-    public Long getId() {
-        return id;
+    public Long getStudentID() {
+        return studentID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setStudentID(Long studentID) {
+        this.studentID = studentID;
     }
+    
+    
     
     // TODO, delete this class, or rename to an Entity class that makes sense for what you are about to do
-    // Delete EVERYTHING below if you decide to use this class, it's dummy data used for the initial demo
-    private String name;
-    private String film;
-
-    public Members(String name, String film) {
-        this.name = name;
-        this.film = film;
-    }
 
     public String getName() {
         return name;
@@ -46,13 +49,16 @@ public class Members implements Serializable {
         this.name = name;
     }
 
-    public String getFilm() {
-        return film;
+    public String getFavoriteTvshows() {
+        return favoriteTvshows;
     }
 
-    public void setFilm(String film) {
-        this.film = film;
+    public void setFavoriteTvshows(String favoriteTvshows) {
+        this.favoriteTvshows = favoriteTvshows;
     }
+    
+    
+   
 
    
     
