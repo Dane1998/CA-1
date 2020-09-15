@@ -20,7 +20,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 //Uncomment the line below, to temporarily disable this test
-//@Disabled
+@Disabled
 public class MembersResourceTest {
 
     private static final int SERVER_PORT = 7777;

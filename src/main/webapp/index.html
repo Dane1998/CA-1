@@ -1,10 +1,41 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <h1>Change or remove this page</h1>
-    </body>
-</html>
+  <!DOCTYPE html>
+  <html> 
+      <head> 
+          <title>Start Page</title> 
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> </head>
+      <body> 
+          <form> <button id="find-all">Reload Names</button> </form>
+          <div id="result"></div>
+          
+          <script> 
+              
+               //Er test URL 
+              const baseUrl = "https://jsonplaceholder.typicode.com/users" 
+              //Finder alle brugere
+              
+              document.getElementById('find-all').addEventListener('click', function(event) { 
+                  event.preventDefault(); 
+                  
+                  const resultBox = document.getElementById('result'); 
+                  fetch(baseUrl).then(response => response.json()).then(data => { 
+                      const trs = data.map(({name, phone, email}) => `<tr><td>${name}</td><td>${phone}</td><td>${email}</tr>`).join(''); 
+                      resultBox.innerHTML = 
+                              ` <table border="1"> 
+                                    <thead> 
+                                        <tr> 
+                                           <td>Name</td> 
+                                           <td>Student-ID</td> 
+                                           <td>Movie</td> 
+                                        </tr> 
+                                    </thead> 
+                                    <tbody> 
+                                        ${trs} 
+                                    </tbody> 
+                                </table> `;
+                        }); 
+                        
+        console.log('Do something now'); }); 
+          </script>
+          
+      </body> </html>
+  
