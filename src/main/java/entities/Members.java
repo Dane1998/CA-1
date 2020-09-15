@@ -24,6 +24,9 @@ public class Members implements Serializable {
         this.name = name;
         this.favoriteTvshows = favoriteTvshows;
     }
+
+    public Members() {
+    }
     
     
     

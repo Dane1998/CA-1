@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -14,13 +15,13 @@ public class MemberFacade {
 
     private static MemberFacade instance;
     private static EntityManagerFactory emf;
-    
+
     //Private Constructor to ensure Singleton
-    private MemberFacade() {}
-    
-    
+    private MemberFacade() {
+    }
+
     /**
-     * 
+     *
      * @param _emf
      * @return an instance of this facade class.
      */
@@ -35,17 +36,16 @@ public class MemberFacade {
     private EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
-    //TODO Remove/Change this before use
-    public long getRenameMeCount(){
+
+    public List<Members> getAllMembers() {
         EntityManager em = emf.createEntityManager();
-        try{
-            long renameMeCount = (long)em.createQuery("SELECT COUNT(M) FROM Members m").getSingleResult();
-            return renameMeCount;
-        }finally{  
+        try {
+            Query query = em.createNamedQuery("Members.getAllMembers");
+            List<Members> allMembers = query.getResultList();
+            return allMembers;
+        } finally {
             em.close();
         }
-        
     }
 
 }
