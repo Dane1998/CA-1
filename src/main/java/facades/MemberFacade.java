@@ -1,6 +1,6 @@
 package facades;
 
-import entities.RenameMe;
+import entities.Members;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,13 +10,13 @@ import javax.persistence.Persistence;
  *
  * Rename Class to a relevant name Add add relevant facade methods
  */
-public class FacadeExample {
+public class MemberFacade {
 
-    private static FacadeExample instance;
+    private static MemberFacade instance;
     private static EntityManagerFactory emf;
     
     //Private Constructor to ensure Singleton
-    private FacadeExample() {}
+    private MemberFacade() {}
     
     
     /**
@@ -24,10 +24,10 @@ public class FacadeExample {
      * @param _emf
      * @return an instance of this facade class.
      */
-    public static FacadeExample getFacadeExample(EntityManagerFactory _emf) {
+    public static MemberFacade getFacadeExample(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
-            instance = new FacadeExample();
+            instance = new MemberFacade();
         }
         return instance;
     }
@@ -40,7 +40,7 @@ public class FacadeExample {
     public long getRenameMeCount(){
         EntityManager em = emf.createEntityManager();
         try{
-            long renameMeCount = (long)em.createQuery("SELECT COUNT(r) FROM RenameMe r").getSingleResult();
+            long renameMeCount = (long)em.createQuery("SELECT COUNT(M) FROM Members m").getSingleResult();
             return renameMeCount;
         }finally{  
             em.close();

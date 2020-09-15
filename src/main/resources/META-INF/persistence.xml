@@ -29,7 +29,7 @@
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/CA-1_test"/>
       <property name="javax.persistence.jdbc.user" value="dev"/>
       <property name="javax.persistence.jdbc.password" value="ax2"/>
-      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>
