@@ -5,11 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-
 @Entity
-@NamedQuery(name = "Members.getAllMembers",query="SELECT m from Members m")
+@NamedQueries({
+@NamedQuery(name = "Members.deleteAllMembers", query = "DELETE FROM Members"),
+@NamedQuery(name = "Members.getAllMembers", query = "SELECT m FROM Members m")
+})
 public class Members implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,7 +21,6 @@ public class Members implements Serializable {
     private Long studentID;
     private String name;
     private String favoriteTvshows;
-    
 
     public Members(String name, String favoriteTvshows) {
         this.name = name;
@@ -27,11 +29,7 @@ public class Members implements Serializable {
 
     public Members() {
     }
-    
-    
-    
-   
-        
+
     public Long getStudentID() {
         return studentID;
     }
@@ -39,11 +37,8 @@ public class Members implements Serializable {
     public void setStudentID(Long studentID) {
         this.studentID = studentID;
     }
-    
-    
-    
-    // TODO, delete this class, or rename to an Entity class that makes sense for what you are about to do
 
+    // TODO, delete this class, or rename to an Entity class that makes sense for what you are about to do
     public String getName() {
         return name;
     }
@@ -59,14 +54,5 @@ public class Members implements Serializable {
     public void setFavoriteTvshows(String favoriteTvshows) {
         this.favoriteTvshows = favoriteTvshows;
     }
-    
-    
-   
 
-   
-    
-    
-    
-
-   
 }
