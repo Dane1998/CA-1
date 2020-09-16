@@ -23,7 +23,7 @@ public class MembersResource {
     
     private static final MemberFacade FACADE =  MemberFacade.getFacadeExample(EMF);
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-            
+         
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String demo() {
@@ -33,7 +33,9 @@ public class MembersResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getAllMembers(){
+        
         List<Members> allMembers = FACADE.getAllMembers();
+        FACADE.addMembers();
         return GSON.toJson(allMembers);
     }
 }
