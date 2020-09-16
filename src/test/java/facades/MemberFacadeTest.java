@@ -2,6 +2,8 @@ package facades;
 
 import utils.EMF_Creator;
 import entities.Members;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import org.junit.jupiter.api.AfterAll;
@@ -13,7 +15,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 //Uncomment the line below, to temporarily disable this test
-@Disabled
+//@Disabled
 public class MemberFacadeTest {
 
     private static EntityManagerFactory emf;
@@ -61,7 +63,7 @@ public class MemberFacadeTest {
     // TODO: Delete or change this method 
     @Test
     public void testGetAllMembers() {
-        assertEquals(3, facade.getAllMembers(), "Expects tree rows in the database");
+        assertEquals(3, facade.getMemberCount(), "Expects tree rows in the database");
     }
 
 }

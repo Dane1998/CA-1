@@ -47,5 +47,15 @@ public class MemberFacade {
             em.close();
         }
     }
+    
+    public long getMemberCount(){
+        EntityManager em = emf.createEntityManager();
+        try{
+            long memberCount = (long)em.createQuery("SELECT COUNT(m) FROM Members m").getSingleResult();
+            return memberCount;
+        }finally{  
+            em.close();
+        }
+    }
 
 }
