@@ -38,4 +38,12 @@ public class MembersResource {
         FACADE.addMembers();
         return GSON.toJson(allMembers);
     }
+    
+    @Path("add")
+    @GET
+    @Produces ({MediaType.APPLICATION_JSON})
+    public String addMembers(){
+        FACADE.addMembers();
+        return "Hej";
+    }
 }
