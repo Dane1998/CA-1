@@ -45,7 +45,7 @@ public class MemberFacadeTest {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
-            em.createNamedQuery("Members.deleteAllMembers");
+            em.createNamedQuery("Members.deleteAllMembers").executeUpdate();
             em.persist(m1);
             em.persist(m2);
             em.persist(m3);           
