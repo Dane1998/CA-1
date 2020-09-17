@@ -17,32 +17,30 @@ import javax.ws.rs.core.MediaType;
 public class MembersResource {
 
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
-    
+
     //An alternative way to get the EntityManagerFactory, whithout having to type the details all over the code
     //EMF = EMF_Creator.createEntityManagerFactory(DbSelector.DEV, Strategy.CREATE);
-    
-    private static final MemberFacade FACADE =  MemberFacade.getFacadeExample(EMF);
+    private static final MemberFacade FACADE = MemberFacade.getFacadeExample(EMF);
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-         
+
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String demo() {
         return "{\"msg\":\"Hello World\"}";
     }
+
     @Path("all")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public String getAllMembers(){
-        
+    public String getAllMembers() {
         List<Members> allMembers = FACADE.getAllMembers();
-        FACADE.addMembers();
         return GSON.toJson(allMembers);
     }
-    
+
     @Path("add")
     @GET
-    @Produces ({MediaType.APPLICATION_JSON})
-    public String addMembers(){
+    @Produces({MediaType.APPLICATION_JSON})
+    public String addMembers() {
         FACADE.addMembers();
         return "Hej";
     }
