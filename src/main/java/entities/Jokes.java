@@ -10,10 +10,10 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
-@NamedQuery(name = "Members.deleteAllMembers", query = "DELETE FROM Members"),
-@NamedQuery(name = "Members.getAllMembers", query = "SELECT m FROM Members m")
+@NamedQuery(name = "Jokes.deleteAllJokes", query = "DELETE FROM Jokes"),
+@NamedQuery(name = "Jokes.getAllJokes", query = "SELECT m FROM Jokes m")
 })
-public class Members implements Serializable {
+public class Jokes implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -22,12 +22,12 @@ public class Members implements Serializable {
     private String name;
     private String favoriteTvshows;
 
-    public Members(String name, String favoriteTvshows) {
+    public Jokes (String name, String favoriteTvshows) {
         this.name = name;
         this.favoriteTvshows = favoriteTvshows;
     }
 
-    private Members() {
+    public Jokes() {
     }
 
     public Long getStudentID() {
