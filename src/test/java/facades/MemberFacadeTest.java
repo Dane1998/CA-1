@@ -63,7 +63,7 @@ public class MemberFacadeTest {
     // TODO: Delete or change this method 
     @Test
     public void testGetAllMembers() {
-        assertEquals(6, facade.getMemberCount(), "Expects tree rows in the database");
+        assertEquals(3, facade.getMemberCount(), "Expects tree rows in the database");
     }
 
 }
