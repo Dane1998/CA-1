@@ -27,7 +27,7 @@ public class Members implements Serializable {
         this.favoriteTvshows = favoriteTvshows;
     }
 
-    private Members() {
+    public Members() {
     }
 
     public Long getStudentID() {

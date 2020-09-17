@@ -1,5 +1,6 @@
 package facades;
 
+import entities.Jokes;
 import entities.Members;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -12,16 +13,16 @@ import utils.EMF_Creator;
  *
  * Rename Class to a relevant name Add add relevant facade methods
  */
-public class MemberFacade {
+public class JokeFacade {
 
-    private static MemberFacade instance;
+    private static JokeFacade instance;
     private static EntityManagerFactory emf;
-    private final Members m1 = new Members("Pidaras", "Russia");
-    private final Members m2 = new Members("Suka", "Dibil");
-    private final Members m3 = new Members("Putin", "Love");
+    private final Jokes j1 = new Jokes("Why does Waldo wear stripes?", "Because he doesn't want to be spotted.");
+    private final Jokes j2 = new Jokes("To be frank,", "I'd have to change my name.");
+    private final Jokes j3 = new Jokes("A naked guy just dunked his balls in glitter", "That's pretty nuts.");
 
     //Private Constructor to ensure Singleton
-    private MemberFacade() {
+    private JokeFacade() {
     }
 
     /**
@@ -29,10 +30,10 @@ public class MemberFacade {
      * @param _emf
      * @return an instance of this facade class.
      */
-    public static MemberFacade getFacadeExample(EntityManagerFactory _emf) {
+    public static JokeFacade getFacadeExample(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
-            instance = new MemberFacade();
+            instance = new JokeFacade();
         }
         return instance;
     }
@@ -41,39 +42,39 @@ public class MemberFacade {
         return emf.createEntityManager();
     }
 
-    public List<Members> getAllMembers() {
+    public List<Jokes> getAllJokes() {
         EntityManager em = emf.createEntityManager();
         try {
-            Query query = em.createNamedQuery("Members.getAllMembers");
-            List<Members> allMembers = query.getResultList();
-            return allMembers;
+            Query query = em.createNamedQuery("Jokes.getAllJokes");
+            List<Jokes> allJokes = query.getResultList();
+            return allJokes;
         } finally {
             em.close();
         }
 
     }
 
-    public void addMembers() {
+    public void addJokes() {
 
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
 
-            em.createNamedQuery("Members.deleteAllMembers").executeUpdate();
-            em.persist(m1);
-            em.persist(m2);
-            em.persist(m3);
+            em.createNamedQuery("Jokes.deleteAllJokes").executeUpdate();
+            em.persist(j1);
+            em.persist(j2);
+            em.persist(j3);
             em.getTransaction().commit();
         } finally {
             em.close();
         }
     }
 
-    public long getMemberCount() {
+    public long getJokesCount() {
         EntityManager em = emf.createEntityManager();
         try {
-            long memberCount = (long) em.createQuery("SELECT COUNT(m) FROM Members m").getSingleResult();
-            return memberCount;
+            long jokeCount = (long) em.createQuery("SELECT COUNT(j) FROM Jokes j").getSingleResult();
+            return jokeCount;
         } finally {
             em.close();
         }

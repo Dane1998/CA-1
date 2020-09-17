@@ -18,41 +18,41 @@ public class Jokes implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long studentID;
-    private String name;
-    private String favoriteTvshows;
+    private Long id;
+    private String setup;
+    private String punchline;
 
-    public Jokes (String name, String favoriteTvshows) {
-        this.name = name;
-        this.favoriteTvshows = favoriteTvshows;
+    public Jokes (String punchline, String setup) {
+        this.setup = setup;
+        this.punchline = punchline;
     }
 
     public Jokes() {
     }
 
-    public Long getStudentID() {
-        return studentID;
+    public Long getID() {
+        return id;
     }
 
-    public void setStudentID(Long studentID) {
-        this.studentID = studentID;
+    public void setID(Long id) {
+        this.id = id;
     }
 
     // TODO, delete this class, or rename to an Entity class that makes sense for what you are about to do
-    public String getName() {
-        return name;
+    public String getSetup() {
+        return setup;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSetup(String setup) {
+        this.setup = setup;
     }
 
-    public String getFavoriteTvshows() {
-        return favoriteTvshows;
+    public String getPunchline() {
+        return punchline;
     }
 
-    public void setFavoriteTvshows(String favoriteTvshows) {
-        this.favoriteTvshows = favoriteTvshows;
+    public void setPunchline(String punchline) {
+        this.punchline = punchline;
     }
 
 }
