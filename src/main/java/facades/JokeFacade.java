@@ -1,5 +1,7 @@
 package facades;
 
+import DTO.JokeDTO;
+import DTO.JokesDTO;
 import entities.Jokes;
 import entities.Members;
 import static entities.ghy636765.Jokes_.id;
@@ -44,11 +46,11 @@ public class JokeFacade {
         return emf.createEntityManager();
     }
 
-    public List<Jokes> getAllJokes() {
+    public List<JokesDTO> getAllJokes() {
         EntityManager em = emf.createEntityManager();
         try {
             Query query = em.createNamedQuery("Jokes.getAllJokes");
-            List<Jokes> allJokes = query.getResultList();
+            List<JokesDTO> allJokes = query.getResultList();
             return allJokes;
         } finally {
             em.close();
@@ -56,12 +58,12 @@ public class JokeFacade {
     }
     
         //TODO skal fikses, kan ikke finde ud af at spytte en joke ud
-    public List<Jokes> getOneJoke(String Jokes){
+    public Jokes getJokeById(long id){
         EntityManager em = emf.createEntityManager();
         try{
-            Query query = em.createNamedQuery("Jokes.getOneJoke");
+            Query query = em.createNamedQuery("Jokes.getJokeById");
             query.setParameter("id",id);
-            List<Jokes> joke = query.getResultList();
+            Jokes joke = (Jokes) query.getSingleResult();
             return joke;
         }finally{
             em.close();

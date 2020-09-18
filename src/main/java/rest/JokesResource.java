@@ -1,6 +1,7 @@
     package rest;
 
 
+import DTO.JokesDTO;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entities.Jokes;
@@ -10,6 +11,7 @@ import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -34,17 +36,17 @@ public class JokesResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getAllJokes() {
-        List<Jokes> allJokes = FACADE.getAllJokes();
+        List<JokesDTO> allJokes = FACADE.getAllJokes();
         return GSON.toJson(allJokes);    
     }
     //TODO skal laves til at den kun smider en joke ud
-   /* @Path("one")
+   @Path("/{id}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public String getOneJoke(String jokes){
-        List<Jokes> joke = FACADE.getOneJoke();
+    public String getJokeById(@PathParam("id") int id){
+        Jokes joke = FACADE.getJokeById(id);
         return GSON.toJson(joke);
-    }*/
+    }
     
     @Path("add")
     @GET
