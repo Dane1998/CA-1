@@ -17,8 +17,8 @@ public class JokeFacade {
 
     private static JokeFacade instance;
     private static EntityManagerFactory emf;
-    private final Jokes j1 = new Jokes("Why does Waldo wear stripes?", "Because he doesn't want to be spotted.");
-    private final Jokes j2 = new Jokes("To be frank,", "I'd have to change my name.");
+  //  private final Jokes j1 = new Jokes("Why does Waldo wear stripes?", "Because he doesn't want to be spotted.");
+   // private final Jokes j2 = new Jokes("To be frank,", "I'd have to change my name.");
     private final Jokes j3 = new Jokes("A naked guy just dunked his balls in glitter", "That's pretty nuts.");
 
     //Private Constructor to ensure Singleton
@@ -51,9 +51,20 @@ public class JokeFacade {
         } finally {
             em.close();
         }
-
     }
-
+    
+        
+    public List getOneJoke(){
+        EntityManager em = emf.createEntityManager();
+        try{
+            Query query = em.createNamedQuery("Jokes.getOneJoke");
+            List joke = query.getResultList();
+            return joke;
+        }finally{
+            em.close();
+        } 
+    }
+    
     public void addJokes() {
 
         EntityManager em = emf.createEntityManager();
@@ -61,8 +72,8 @@ public class JokeFacade {
             em.getTransaction().begin();
 
             em.createNamedQuery("Jokes.deleteAllJokes").executeUpdate();
-            em.persist(j1);
-            em.persist(j2);
+            //em.persist(j1);
+            //em.persist(j2);
             em.persist(j3);
             em.getTransaction().commit();
         } finally {

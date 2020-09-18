@@ -5,12 +5,59 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+    <style type="text/css">
+        #data{
+            width: 600px;
+            border: 1px dashed black;
+            font-size: 20px;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 50px;
+            paddig: 20px;
+        }
+        #logo{
+            width: 320px; height: 320px;
+            margin: 0 auto;
+            margin-top: 50px;
+            display: block;
+        }
+    </style>
     <head>
-        <title>TODO supply a title</title>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
+        <title>Random jokes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>Artem, skriv en russisk joke her</div>
+        <img id="logo" src="putnik.jpg"/>
+       // <div id="data"/>
+         <form> <button id="data">Get joke</button> </form>
+        <script type="text/javascript">
+            function randomJoke(){
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://localhost:8080/jpareststarter/api/jokes/all";
+                xmlhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200){ //HTTP 200 response
+                        // we get JSON response
+                        var json = JSON.parse(this.responseText);
+                        parseResponse(json);  
+                    }
+                };
+                
+                xmlhttp.open("GET",url,true);
+                xmlhttp.send(); // we call Jokes API endpoint
+            }
+            function parseResponse(json){
+               //JSON response is a simle object with a value prperty containingthe random joke
+               document.getElementById("data").innerHTML= "<b>" + json["value"] + "</b>";
+            }
+            // Last step is to add a click event listener for loading random fact
+            document.getElementById("data").addEventListener("click", function(){
+                randomJoke();
+            });
+            // now we cant test our app;
+            randomJoke();
+        </script>   
     </body>
 </html>

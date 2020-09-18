@@ -34,15 +34,22 @@ public class JokesResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getAllJokes() {
-        List<Jokes> allMembers = FACADE.getAllJokes();
-        return GSON.toJson(allMembers);
+        List<Jokes> allJokes = FACADE.getAllJokes();
+        return GSON.toJson(allJokes);    
     }
-
+    @Path("ones")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public String getOneJoke(){
+        List joke = FACADE.getOneJoke();
+        return GSON.toJson(joke);
+    }
+    
     @Path("add")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String addMembers() {
         FACADE.addJokes();
-        return "you have Joked";
+        return "Why so serious?";
     }
 }
