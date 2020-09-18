@@ -11,8 +11,10 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
 @NamedQuery(name = "Jokes.deleteAllJokes", query = "DELETE FROM Jokes"),
-@NamedQuery(name = "Jokes.getAllJokes", query = "SELECT m FROM Jokes m"),
-@NamedQuery(name = "Jokes.getOneJokes", query = "SELECT m FROM Jokes m")
+@NamedQuery(name = "Jokes.getAllJokes", query = "SELECT j FROM Jokes j"),
+//TODO skal fikses skal kunne kun tage fat i en joke
+@NamedQuery(name = "Jokes.getOneJokes", query = "SELECT j.id as id, j.punchline as punchline FROM Jokes j WHERE j.id = :id")
+
 })
 public class Jokes implements Serializable {
 

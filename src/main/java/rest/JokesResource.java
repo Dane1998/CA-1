@@ -37,13 +37,14 @@ public class JokesResource {
         List<Jokes> allJokes = FACADE.getAllJokes();
         return GSON.toJson(allJokes);    
     }
-    @Path("ones")
+    //TODO skal laves til at den kun smider en joke ud
+   /* @Path("one")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public String getOneJoke(){
-        List joke = FACADE.getOneJoke();
+    public String getOneJoke(String jokes){
+        List<Jokes> joke = FACADE.getOneJoke();
         return GSON.toJson(joke);
-    }
+    }*/
     
     @Path("add")
     @GET
