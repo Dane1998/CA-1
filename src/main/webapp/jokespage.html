@@ -23,41 +23,63 @@ and open the template in the editor.
         }
     </style>
     <head>
-        <link rel="stylesheet" href="style.css" type="text/css"/>
-
+       
         <title>Random jokes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <img id="logo" src="putnik.jpg"/>
-       // <div id="data"/>
-         <form> <button id="data">Get joke</button> </form>
-        <script type="text/javascript">
-            function randomJoke(){
-                var xmlhttp = new XMLHttpRequest();
-                var url = "http://localhost:8080/jpareststarter/api/jokes/1";
-                xmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200){ //HTTP 200 response
-                        // we get JSON response
-                        var json = JSON.parse(this.responseText);
-                        parseResponse(json);  
-                    }
-                };
-                
-                xmlhttp.open("GET",url,true);
-                xmlhttp.send(); // we call Jokes API endpoint
-            }
-            function parseResponse(json){
-               //JSON response is a simle object with a value prperty containingthe random joke
-               document.getElementById("data").innerHTML= "<b>" + json["value"] + "</b>";
-            }
-            // Last step is to add a click event listener for loading random fact
-            document.getElementById("data").addEventListener("click", function(){
-                randomJoke();
-            });
-            // now we cant test our app;
-            randomJoke();
-        </script>   
+      <script>
+        const baseUrl = "https://localhost:8080/jpareststarter/api/jokes/all" 
+              //Finder alle brugere
+              
+            
+                  //Der er med vilje forskel på de to tables, det er for at midlertidigt teste om den reloader det rigtige table. Ikke færdigt.
+                  const resultBox = document.getElementById('result'); 
+                  fetch(baseUrl).then(response => response.json()).then(data => { 
+                      const trs = data.map(({id, brand, model, owner, price, year}) => `<tr><td>${id}</td><td>${brand}</td><td>${model}</td><td>${owner}</td><td>${year}</td><td>${price}</td></tr>`).join(''); 
+                      resultBox.innerHTML = 
+                              ` <table border= "2"> 
+                                <caption>Kano Gruppen</caption>
+                                    <thead> 
+                                        <tr> 
+                                           <td>Id</td> 
+                                           <td>Brand</td> 
+                                           <td>Model</td> 
+                                           <td>Owner</td> 
+                                           <td>Year</td> 
+                                           <td>Price</td> 
+                                        </tr> 
+                                    </thead> 
+                                    <tbody> 
+                                        ${trs} 
+                                    </tbody> 
+                                </table> `; 
+        }); 
+   
+          document.getElementById('find-all').addEventListener('click', function(event) {
+          event.preventDefault(); 
+                  const resultBox = document.getElementById('result'); 
+                  fetch(baseUrl).then(response => response.json()).then(data => { 
+                      const trs = data.map(({id, setup, punchline}) => `<tr><td>${id}</td><td>${setup}</td><td>${punchline}</tr>`).join(''); 
+                      resultBox.innerHTML = 
+                              ` <table border= "2" > 
+                                <caption>Kano Gruppen</caption>
+                                    <thead> 
+                                        <tr> 
+                                           <td>Joke id</td> 
+                                           <td>setup</td> 
+                                           <td>punchline</td> 
+                                        </tr> 
+                                    </thead> 
+                                    <tbody> 
+                                        ${trs} 
+                                    </tbody> 
+                                </table> `; 
+        }); });
+                          
+        </script>
+
     </body>
 </html>
