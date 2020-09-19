@@ -16,9 +16,9 @@ public class MemberFacade {
 
     private static MemberFacade instance;
     private static EntityManagerFactory emf;
-    private final Members m1 = new Members("Pidaras", "Russia");
-    private final Members m2 = new Members("Suka", "Dibil");
-    private final Members m3 = new Members("Putin", "Love");
+    private final Members m1 = new Members("Artem Ivanov", "The Punisher", "cph-ai62@cphbusiness.dk");
+    private final Members m2 = new Members("Daniel Poulsen", "Peaky Blinders" , "cph-dp127@cphbusiness.dk");
+    private final Members m3 = new Members("Lasse Birk", "Breaking Bad", "cph-lb296@cphbusiness.dk");
 
     //Private Constructor to ensure Singleton
     private MemberFacade() {

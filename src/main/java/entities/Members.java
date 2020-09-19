@@ -21,10 +21,12 @@ public class Members implements Serializable {
     private Long studentID;
     private String name;
     private String favoriteTvshows;
+    private String email;
 
-    public Members(String name, String favoriteTvshows) {
+    public Members(String name, String favoriteTvshows, String email) {
         this.name = name;
         this.favoriteTvshows = favoriteTvshows;
+        this.email = email;
     }
 
     public Members() {
@@ -55,4 +57,12 @@ public class Members implements Serializable {
         this.favoriteTvshows = favoriteTvshows;
     }
 
+    
+      public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

@@ -27,9 +27,9 @@ public class MembersResourceTest {
 
     private static final int SERVER_PORT = 7777;
     private static final String SERVER_URL = "http://localhost/api";
-    private final Members m1 = new Members("Peter", "Prison Break");
-    private final Members m2 = new Members("Claus", "Silicon Valley");
-    private final Members m3 = new Members("Henning", "Peaky Blinders");
+    private final Members m1 = new Members("Peter", "Prison Break" , "Peter@gmail.com");
+    private final Members m2 = new Members("Claus", "Silicon Valley", "Claus@gmail.com");
+    private final Members m3 = new Members("Henning", "Peaky Blinders", "Henning@gmail.com");
 
     static final URI BASE_URI = UriBuilder.fromUri(SERVER_URL).port(SERVER_PORT).build();
     private static HttpServer httpServer;

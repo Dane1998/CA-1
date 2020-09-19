@@ -20,9 +20,9 @@ public class MemberFacadeTest {
 
     private static EntityManagerFactory emf;
     private static MemberFacade facade;
-    private final Members m1 = new Members("Peter", "Prison Break");
-    private final Members m2 = new Members("Claus", "Silicon Valley");
-    private final Members m3 = new Members("Henning", "Peaky Blinders");
+    private final Members m1 = new Members("Peter", "Prison Break" , "Peter@gmail.com");
+    private final Members m2 = new Members("Claus", "Silicon Valley", "Claus@gmail.com");
+    private final Members m3 = new Members("Henning", "Peaky Blinders", "Henning@gmail.com");
             
     public MemberFacadeTest() {
     }

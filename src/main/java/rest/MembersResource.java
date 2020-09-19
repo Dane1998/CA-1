@@ -32,9 +32,9 @@ public class MembersResource {
     @Path("all")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public String getAllMembers() {
+    public List<Members> getAllMembers() {
         List<Members> allMembers = FACADE.getAllMembers();
-        return GSON.toJson(allMembers);
+        return allMembers;
     }
 
     @Path("add")
