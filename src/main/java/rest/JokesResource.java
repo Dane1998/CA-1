@@ -35,17 +35,17 @@ public class JokesResource {
     @Path("all")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public String getAllJokes() {
+    public List<JokesDTO> getAllJokes() {
         List<JokesDTO> allJokes = FACADE.getAllJokes();
-        return GSON.toJson(allJokes);    
+        return allJokes;    
     }
     
    @Path("/{id}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public String getJokeById(@PathParam("id") int id){
+    public Jokes getJokeById(@PathParam("id") int id){
         Jokes joke = FACADE.getJokeById(id);
-        return GSON.toJson(joke);
+        return joke;
     }
     
     @Path("add")
