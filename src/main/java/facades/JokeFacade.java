@@ -34,7 +34,7 @@ public class JokeFacade {
      * @param _emf
      * @return an instance of this facade class.
      */
-    public static JokeFacade getFacadeExample(EntityManagerFactory _emf) {
+    public static JokeFacade getJokesFacade(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
             instance = new JokeFacade();

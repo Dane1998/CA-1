@@ -29,7 +29,7 @@ public class MemberFacade {
      * @param _emf
      * @return an instance of this facade class.
      */
-    public static MemberFacade getFacadeExample(EntityManagerFactory _emf) {
+    public static MemberFacade getMemberFacade(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
             instance = new MemberFacade();
