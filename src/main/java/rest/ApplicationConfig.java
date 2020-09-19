@@ -23,6 +23,7 @@ public class ApplicationConfig extends Application {
         resources.add(org.glassfish.jersey.server.wadl.internal.WadlResource.class);
         resources.add(rest.CarsResource.class);
         resources.add(rest.JokesResource.class);
+        resources.add(rest.MembersResource.class);
         resources.add(rest.TestResource.class);
     }
     
