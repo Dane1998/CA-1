@@ -21,9 +21,9 @@ public class JokeFacade {
 
     private static JokeFacade instance;
     private static EntityManagerFactory emf;
-    private final Jokes j1 = new Jokes("Why does Waldo wear stripes?", "Because he doesn't want to be spotted.");
-    private final Jokes j2 = new Jokes("To be frank,", "I'd have to change my name.");
-    private final Jokes j3 = new Jokes("A naked guy just dunked his balls in glitter", "That's pretty nuts.");
+    private final Jokes j1 = new Jokes("Why does Waldo wear stripes?", "Because he does not want to be spotted.");
+    private final Jokes j2 = new Jokes("To be frank,", "I would have to change my name.");
+    private final Jokes j3 = new Jokes("A naked guy just dunked his balls in glitter", "That is pretty nuts.");
 
     //Private Constructor to ensure Singleton
     private JokeFacade() {
