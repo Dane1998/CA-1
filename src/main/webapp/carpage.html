@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <script>
+        const baseUrl = "http://localhost:8080/jpareststarter/api/cars/all" 
+              //Finder alle brugere
+              
+            
+                  //Der er med vilje forskel på de to tables, det er for at midlertidigt teste om den reloader det rigtige table. Ikke færdigt.
+                  const resultBox = document.getElementById('result'); 
+                  fetch(baseUrl).then(response => response.json()).then(data => { 
+                      const trs = data.map(({name, phone}) => `<tr><td>${name}</td><td>${phone}</td></tr>`).join(''); 
+                      resultBox.innerHTML = 
+                              ` <table border= "2"> 
+                                <caption>Kano Gruppen</caption>
+                                    <thead> 
+                                        <tr> 
+                                           <td>Member Name </td> 
+                                           <td>Student-ID</td> 
+                                           
+                                        </tr> 
+                                    </thead> 
+                                    <tbody> 
+                                        ${trs} 
+                                    </tbody> 
+                                </table> `; 
+        }); 
+   
+          document.getElementById('find-all').addEventListener('click', function(event) {
+          event.preventDefault(); 
+                  const resultBox = document.getElementById('result'); 
+                  fetch(baseUrl).then(response => response.json()).then(data => { 
+                      const trs = data.map(({name, phone, email}) => `<tr><td>${name}</td><td>${phone}</td><td>${email}</tr>`).join(''); 
+                      resultBox.innerHTML = 
+                              ` <table border= "2" > 
+                                <caption>Kano Gruppen</caption>
+                                    <thead> 
+                                        <tr> 
+                                           <td>Member Name</td> 
+                                           <td>Student-ID</td> 
+                                           <td>Favorite Movie</td> 
+                                        </tr> 
+                                    </thead> 
+                                    <tbody> 
+                                        ${trs} 
+                                    </tbody> 
+                                </table> `; 
+        }); });
+                          
+        </script>
+
+    </body>
+</html>
