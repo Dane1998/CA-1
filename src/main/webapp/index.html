@@ -3,7 +3,7 @@
       <head> 
           
           <title>CA-2</title> 
-          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
           
             
       
@@ -19,20 +19,18 @@
           <br>
           <a href="jokespage.html">Link til jokes side </a>
           <br>
-          
           <a href="https://github.com/Dane1998/CA-1">Link til Github Repository </a>
   
           
-          <script>         
-              //Er test URL 
-              const baseUrl = "https://dgpcoding.com/api/groupmembers/all" 
-              //Finder alle brugere
+          <script>
+        const baseUrl = "https://dgpcoding.com/api/groupmembers/all" 
+              //Finder alle medlemmer
               
             
                   //Der er med vilje forskel på de to tables, det er for at midlertidigt teste om den reloader det rigtige table. Ikke færdigt.
                   const resultBox = document.getElementById('result'); 
                   fetch(baseUrl).then(response => response.json()).then(data => { 
-                      const trs = data.map(({studentID, name, favoriteTvshows, email }) => `<tr><td>${studentID}</td><td>${name}</td><td>${favoriteTvshows}</td><td>${email}</td></tr>`).join(''); 
+                      const trs = data.map(({studentID, name, favoriteTvshows, email}) => `<tr><td>${studentID}</td><td>${name}</td><td>${favoriteTvshows}</td><td>${email}</td></tr>`).join(''); 
                       resultBox.innerHTML = 
                               ` <table border= "2"> 
                                 <caption>Kano Gruppen</caption>
@@ -41,7 +39,7 @@
                                            <td>Student-ID</td> 
                                            <td>Student Name</td> 
                                            <td>Student Show</td> 
-                                           <td>Student E-Mail</td> 
+                                           <td>Student Email</td> 
                                         </tr> 
                                     </thead> 
                                     <tbody> 
@@ -70,12 +68,8 @@
                                     </tbody> 
                                 </table> `; 
         }); });
-                  
-        
-        
-    
-          </script>
-         
+                          
+        </script>
           
              
       </body> 
