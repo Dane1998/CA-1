@@ -1,7 +1,7 @@
 package facades;
 
 import utils.EMF_Creator;
-import entities.Jokes;
+import entities.Cars;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -16,20 +16,20 @@ import org.junit.jupiter.api.Test;
 
 //Uncomment the line below, to temporarily disable this test
 //@Disabled
-public class JokesFacadeTest {
+public class CarsFacadeTest {
 
     private static EntityManagerFactory emf;
-    private static JokeFacade facade;
-    private final Jokes j1 = new Jokes("Hvad kalder man to lamaer, der er kriminelle?", "Bal’lamaer");
-    private final Jokes j2 = new Jokes("Hvad er det værste ved at slå op med en japansk pige?", "Du er nødt til at smide bomben to gange, før hun forstår beskeden");
+    private static CarsFacade facade;
+    private final Cars c1 = new Cars("Per", 2000, "BMW", "M4", 10000.0);
+    private final Cars c2 = new Cars("Carsten", 2010, "Ford", "Mustang", 20000.0);
             
-    public JokesFacadeTest() {
+    public CarsFacadeTest() {
     }
 
     @BeforeAll
     public static void setUpClass() {
        emf = EMF_Creator.createEntityManagerFactoryForTest();
-       facade = JokeFacade.getJokesFacade(emf);
+       facade = CarsFacade.getCarsFacade(emf);
     }
 
     @AfterAll
@@ -44,9 +44,9 @@ public class JokesFacadeTest {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
-            em.createNamedQuery("Jokes.deleteAllJokes").executeUpdate();
-            em.persist(j1);
-            em.persist(j2);                    
+            em.createNamedQuery("Cars.deleteAllCars").executeUpdate();
+            em.persist(c1);
+            em.persist(c2);                    
             em.getTransaction().commit();
         } finally {
             em.close();
@@ -61,7 +61,7 @@ public class JokesFacadeTest {
     // TODO: Delete or change this method 
     @Test
     public void testGetAllMembers() {
-        assertEquals(2, facade.getJokesCount(), "Expects tree rows in the database");
+        assertEquals(2, facade.getCarCount(), "Expects tree rows in the database");
     }
 
 }

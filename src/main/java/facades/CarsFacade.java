@@ -67,7 +67,7 @@ public class CarsFacade {
     public long getCarCount() {
         EntityManager em = emf.createEntityManager();
         try {
-            long carCount = (long) em.createQuery("SELECT COUNT(c) FROM Car c").getSingleResult();
+            long carCount = (long) em.createQuery("SELECT COUNT(c) FROM Cars c").getSingleResult();
             return carCount;
         } finally {
             em.close();

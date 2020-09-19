@@ -30,7 +30,7 @@ public class MemberFacadeTest {
     @BeforeAll
     public static void setUpClass() {
        emf = EMF_Creator.createEntityManagerFactoryForTest();
-       facade = MemberFacade.getFacadeExample(emf);
+       facade = MemberFacade.getMemberFacade(emf);
     }
 
     @AfterAll

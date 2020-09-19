@@ -20,7 +20,7 @@ public class MembersResource {
 
     //An alternative way to get the EntityManagerFactory, whithout having to type the details all over the code
     //EMF = EMF_Creator.createEntityManagerFactory(DbSelector.DEV, Strategy.CREATE);
-    private static final MemberFacade FACADE = MemberFacade.getFacadeExample(EMF);
+    private static final MemberFacade FACADE = MemberFacade.getMemberFacade(EMF);
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     @GET
