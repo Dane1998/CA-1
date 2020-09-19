@@ -39,7 +39,7 @@ public class JokesResource {
         List<JokesDTO> allJokes = FACADE.getAllJokes();
         return GSON.toJson(allJokes);    
     }
-    //TODO skal laves til at den kun smider en joke ud
+    
    @Path("/{id}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})

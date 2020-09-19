@@ -57,7 +57,7 @@ public class JokeFacade {
         }
     }
     
-        //TODO skal fikses, kan ikke finde ud af at spytte en joke ud
+        
     public Jokes getJokeById(long id){
         EntityManager em = emf.createEntityManager();
         try{

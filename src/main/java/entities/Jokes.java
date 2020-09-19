@@ -25,7 +25,7 @@ public class Jokes implements Serializable {
     private String setup;
     private String punchline;
 
-    public Jokes (String punchline, String setup) {
+    public Jokes (String setup, String punchline) {
         this.setup = setup;
         this.punchline = punchline;
     }
