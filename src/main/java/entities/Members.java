@@ -22,7 +22,7 @@ public class Members implements Serializable {
     private String name;
     private String favoriteTvshows;
     private String email;
-
+    private String test;
     public Members(String name, String favoriteTvshows, String email) {
         this.name = name;
         this.favoriteTvshows = favoriteTvshows;
