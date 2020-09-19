@@ -22,7 +22,7 @@ and open the template in the editor.
                   //Der er med vilje forskel på de to tables, det er for at midlertidigt teste om den reloader det rigtige table. Ikke færdigt.
                   const resultBox = document.getElementById('result'); 
                   fetch(baseUrl).then(response => response.json()).then(data => { 
-                      const trs = data.map(({id, brand, model, owner, price, year}) => `<tr><td>${id}</td><td>${brand}</td><td>${model}</td><td>${owner}</td><td>${price}</td><td>${year}</td></tr>`).join(''); 
+                      const trs = data.map(({id, brand, model, owner, price, year}) => `<tr><td>${id}</td><td>${brand}</td><td>${model}</td><td>${owner}</td><td>${year}</td><td>${price}</td></tr>`).join(''); 
                       resultBox.innerHTML = 
                               ` <table border= "2"> 
                                 <caption>Kano Gruppen</caption>
@@ -32,8 +32,8 @@ and open the template in the editor.
                                            <td>Brand</td> 
                                            <td>Model</td> 
                                            <td>Owner</td> 
-                                           <td>Price</td> 
                                            <td>Year</td> 
+                                           <td>Price</td> 
                                         </tr> 
                                     </thead> 
                                     <tbody> 
