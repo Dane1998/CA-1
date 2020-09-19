@@ -52,24 +52,8 @@
    
           document.getElementById('find-all').addEventListener('click', function(event) {
           event.preventDefault(); 
-                  const resultBox = document.getElementById('result'); 
-                  fetch(baseUrl).then(response => response.json()).then(data => { 
-                      const trs = data.map(({name, phone, email}) => `<tr><td>${name}</td><td>${phone}</td><td>${email}</tr>`).join(''); 
-                      resultBox.innerHTML = 
-                              ` <table border= "2" > 
-                                <caption>Kano Gruppen</caption>
-                                    <thead> 
-                                        <tr> 
-                                           <td>Member Name</td> 
-                                           <td>Student-ID</td> 
-                                           <td>Favorite Movie</td> 
-                                        </tr> 
-                                    </thead> 
-                                    <tbody> 
-                                        ${trs} 
-                                    </tbody> 
-                                </table> `; 
-        }); });
+                  const resultBox = document.getElementById('result');       
+        });
                   
         
         
