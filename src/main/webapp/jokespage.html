@@ -16,8 +16,12 @@ and open the template in the editor.
         
         <div id="result"></div>
         
+        <div id="random"></div>
+        
+        
+        
       <script>
-        const baseUrl = "https://dgpcoding.com/api/jokes/all" 
+        const baseUrl = "https://http://localhost:8080/jpareststarter/api/jokes/all" 
               //Finder alle brugere
               
             
@@ -42,9 +46,9 @@ and open the template in the editor.
                                 </table> `; 
         }); 
    
-          document.getElementById('find-all').addEventListener('click', function(event) {
+          document.getElementById('find-one').addEventListener('click', function(event) {
           event.preventDefault(); 
-                  const resultBox = document.getElementById('result'); 
+                  const resultBox = document.getElementById('random'); 
                   fetch(baseUrl).then(response => response.json()).then(data => { 
                       const trs = data.map(({id, setup, punchline}) => `<tr><td>${id}</td><td>${setup}</td><td>${punchline}</tr>`).join(''); 
                       resultBox.innerHTML = 
@@ -60,8 +64,10 @@ and open the template in the editor.
                                     <tbody> 
                                         ${trs} 
                                     </tbody> 
-                                </table> `; 
+                                </table> `;
+        
         }); });
+    
                           
         </script>
 
